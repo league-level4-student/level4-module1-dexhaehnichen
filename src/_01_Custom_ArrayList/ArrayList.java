@@ -6,7 +6,8 @@ public class ArrayList <T>{
 	
 	T[] array; 
 	
-	public ArrayList() {
+	public <template> ArrayList(template o) {
+	array = (T[]) [0];
 	}
 	
 	public T get(int loc) throws IndexOutOfBoundsException {
@@ -14,8 +15,8 @@ public class ArrayList <T>{
 	}
 	
 	public void add(T val) {
+		T[] tempA = T[array.length+1];
 		
-		array = (T[]) [1];
 	}
 	
 	public void insert(int loc, T val) throws IndexOutOfBoundsException {
