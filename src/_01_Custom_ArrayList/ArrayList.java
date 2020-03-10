@@ -4,16 +4,18 @@ package _01_Custom_ArrayList;
 
 public class ArrayList <T>{
 	
+	T[] array; 
+	
 	public ArrayList() {
 	}
 	
 	public T get(int loc) throws IndexOutOfBoundsException {
-		
-		return null;
+		return array[loc];
 	}
 	
 	public void add(T val) {
 		
+		array = (T[]) [1];
 	}
 	
 	public void insert(int loc, T val) throws IndexOutOfBoundsException {
