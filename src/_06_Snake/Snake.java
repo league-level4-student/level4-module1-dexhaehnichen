@@ -26,6 +26,8 @@ public class Snake {
 	public void feed() {
 		//1. add a new SnakeSegment object to the snake
 		snake.add(new SnakeSegment(snake.get(0).getLocation(), BODY_SIZE));
+		
+		System.out.println("s: " + snake.size());
 	}
 
 	public Location getHeadLocation() {
@@ -60,9 +62,11 @@ public class Snake {
 		//2a. Update each snake segment to the location of the segment 
 		//    in front of it.
 		
-		for (int i = snake.size()-2; i == 0; i--) {
-			snake.get(i).setLocation(snake.get(i+1).getLocation());
-		}
+		for (int i = snake.size()-1; i > 0; i--) {
+			snake.get(i).setLocation(snake.get(i-1).getLocation());
+			System.out.println(i);
+		} 
+	
 		
 		//3. set the location of the head to the new location calculated in step 1
 		
@@ -116,8 +120,8 @@ public class Snake {
 		//1. complete the method so it returns true if the head of the snake is outside of the window
 		//   and false otherwise
 		
-		if(head.getLocation().x > _00_SnakeGame.WINDOW_WIDTH || head.getLocation().x < 0 || 
-		head.getLocation().y > _00_SnakeGame.WINDOW_HEIGHT || head.getLocation().y < 0) {
+		if(head.getLocation().x > _00_SnakeGame.WIDTH-1 || head.getLocation().x < 0 || 
+		head.getLocation().y > _00_SnakeGame.HEIGHT-1 || head.getLocation().y < 0) {
 			return true;
 		}
 		
@@ -128,7 +132,7 @@ public class Snake {
 		//1. complete the method so it returns true if the head is located
 		//   in the same location as any other body segment
 		for (int i = 1; i < snake.size(); i++) {
-			if(snake.get(i).getLocation() == head.getLocation()) {
+			if(snake.get(i).getLocation().x == head.getLocation().x && snake.get(i).getLocation().y == head.getLocation().y) {
 				System.out.println(i);
 				return true;
 			}
